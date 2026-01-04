@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
-import mongoosePaginate from 'mongoose-paginate-v2';
+import { mongoosePagination, Pagination } from "mongoose-paginate-ts";
 
 export interface IBanner extends Document {
     title: string;
@@ -42,8 +42,8 @@ const bannerSchema = new Schema({
   timestamps: true
 })
 
-bannerSchema.plugin(mongoosePaginate)
+bannerSchema.plugin(mongoosePagination)
 
-const Banner = mongoose.model<IBanner, mongoose.PaginateModel<IBanner>>('Banner', bannerSchema);
+const Banner = mongoose.model<IBanner, Pagination<IBanner>>('Banner', bannerSchema);
 
 export default Banner;

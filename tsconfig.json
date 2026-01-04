@@ -10,7 +10,6 @@
         "sourceMap": true,
         "esModuleInterop": true, // USAR MODULOS DE COMMON JS Y ESMSCRIPT
         "declaration": true, //Habilitar la generacion de archivos .dev y .ts
-        "skipLibCheck": true
     },
     "include": [ // Que archivos incluir en la compilación
         "src/**/*.ts"

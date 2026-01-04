@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
-import mongoosePaginate from 'mongoose-paginate-v2';
+import { mongoosePagination, Pagination } from "mongoose-paginate-ts";
 
 export interface IService extends Document {
     title: string;
@@ -37,8 +37,8 @@ const serviceSchema = new Schema({
   timestamps: true
 })
 
-serviceSchema.plugin(mongoosePaginate)
+serviceSchema.plugin(mongoosePagination)
 
-const Service = mongoose.model<IService, mongoose.PaginateModel<IService>>('Service', serviceSchema);
+const Service = mongoose.model<IService, Pagination<IService>>('Service', serviceSchema);
 
 export default Service;
