@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
-import mongoosePaginate from "mongoose-paginate-v2";
+import { mongoosePagination, Pagination } from "mongoose-paginate-ts";
 
 export interface IProducto extends Document {
     description: string;
@@ -37,8 +37,8 @@ const productoSchema = new Schema({
   timestamps: true
 })
 
-productoSchema.plugin(mongoosePaginate)
+productoSchema.plugin(mongoosePagination)
 
-const Producto = mongoose.model<IProducto, mongoose.PaginateModel<IProducto>>('Producto', productoSchema);
+const Producto = mongoose.model<IProducto, Pagination<IProducto>>('Producto', productoSchema);
 
 export default Producto;

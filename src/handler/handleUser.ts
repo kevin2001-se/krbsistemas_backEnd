@@ -84,12 +84,6 @@ export const getAllUser = async (req: Request, res: Response) => {
 
     const { search } = req.query;
 
-    const options = {
-      page,
-      limit,
-      sort: { createdAt: -1 } // opcional
-    };
-
     const query: any = {}
 
     if (search) {
@@ -99,7 +93,14 @@ export const getAllUser = async (req: Request, res: Response) => {
         ]
     }
 
-    const result = await User.paginate(query, {
+    const options = {
+        query,
+        page,
+        limit,
+        sort: { createdAt: -1 } // opcional
+    };
+
+    const result = await User.paginate({
         ...options,
         select: "-password"
     });

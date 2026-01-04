@@ -17,12 +17,6 @@ export const getProductosPaginate = async (req: Request, res: Response) => {
 
     const { search } = req.query;
 
-    const options = {
-      page,
-      limit,
-      sort: { createdAt: -1 } // opcional
-    };
-
     const query: any = {}
 
     if (search) {
@@ -33,7 +27,14 @@ export const getProductosPaginate = async (req: Request, res: Response) => {
         ]
     }
 
-    const result = await Producto.paginate(query, options)
+    const options = {
+        query,
+        page,
+        limit,
+        sort: { createdAt: -1 } // opcional
+    };
+
+    const result = await Producto.paginate(options)
 
     res.json({
       data: result.docs,
