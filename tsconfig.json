@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist", //Donde se compila
+        "rootDir": "./src", // Carpeta principal donde esta nuestro codigo
+        "lib": ["ESNext"],
+        "target": "ESNext",
+        "moduleResolution": "nodenext",
+        "module": "nodenext",
+        "strict": false, // Ejecuta trypescript en un modo no tan estricto
+        "sourceMap": true,
+        "esModuleInterop": true, // USAR MODULOS DE COMMON JS Y ESMSCRIPT
+        "declaration": true, //Habilitar la generacion de archivos .dev y .ts
+    },
+    "include": [ // Que archivos incluir en la compilación
+        "src/**/*.ts"
+    ]
+}
